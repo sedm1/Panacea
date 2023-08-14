@@ -265,7 +265,7 @@
             "state": "0"
         }
     ],
-    "Promo": [
+    "Purchase": [
         {
             "id": 11,
             "name": "UAZ HUNTER (БУХАНКА)",
@@ -405,6 +405,70 @@
             "rare": "1",
             "title": "GAZ71 (rust)",
             "chance": "2.7%"
+        }
+    ],
+    "Subscriptions": [
+        {
+            "id": 1,
+            "name": "Queue",
+            "server": "cherno1",
+            "date": "01.01.1970",
+            "time": "03:00:00",
+            "IsPending": true,
+            "Extension": [
+                "119руб / +3 дня", 
+                "119руб / +3 дня",
+                "119руб / +3 дня"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Queue",
+            "server": "cherno1",
+            "date": "01.01.1970",
+            "time": "03:00:00",
+            "IsPending": true,
+            "Extension": [
+                "129руб / +3 дня", 
+                "119руб / +3 дня",
+                "119руб / +3 дня"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Queue",
+            "server": "cherno1",
+            "date": "01.01.1970",
+            "time": "03:00:00",
+            "IsPending": false,
+            "Extension": [
+                "139руб / +3 дня", 
+                "119руб / +3 дня",
+                "119руб / +3 дня"
+            ]
+        }
+    ],
+    "Promocodes": [
+        {
+            "id": 1,
+            "server": "Chens 1",
+            "code": "FG-SF12-34",
+            "summ": "2000",
+            "date": "05.12.2021 2:32:12"
+        },
+        {
+            "id": 2,
+            "server": "Chens2",
+            "code": "FG-SF12-34",
+            "summ": "2000",
+            "date": "05.12.2021 2:32:12"
+        },
+        {
+            "id": 3,
+            "server": "Chens 3",
+            "code": "FG-SF12-34",
+            "summ": "2000",
+            "date": "05.12.2021 2:32:12"
         }
     ]
 }

@@ -44,11 +44,15 @@
                     ></VStatsItem>
                 </div>
                 <div class="block__item promo" v-if="TabsOpen === 2">
-                    <VPromo></VPromo>
+                    <VPurchases></VPurchases>
                 </div>
                 <div class="block__item" v-if="TabsOpen === 3">3</div>
-                <div class="block__item" v-if="TabsOpen === 4">4</div>
-                <div class="block__item" v-if="TabsOpen === 5">5</div>
+                <div class="block__item" v-if="TabsOpen === 4">
+                    <VPromo></VPromo>
+                </div>
+                <div class="block__item" v-if="TabsOpen === 5">
+                    <VSubscriptions></VSubscriptions>
+                </div>
             </div>
         </div>
     </main>
@@ -61,15 +65,19 @@ import TheHeader from '@/components/TheHeader.vue'
 import TheFooter from '@/components/TheFooter.vue';
 import { mapActions, mapGetters } from 'vuex';
 import VStatsItem from '@/components/VStatsItem.vue';
+import VPurchases from '@/components/VPurchases.vue';
+import VSubscriptions from '@/components/VSubscriptions.vue';
 import VPromo from '@/components/VPromo.vue';
 export default {
     name: "TheProfile",
     components: {
-        TheHeader, 
-        TheFooter,
-        VStatsItem,
-        VPromo
-    },
+    TheHeader,
+    TheFooter,
+    VStatsItem,
+    VPurchases,
+    VSubscriptions,
+    VPromo
+},
     mounted(){
         this.GET_STATS()
     },
@@ -162,8 +170,7 @@ aside
     grid-template-columns: 23.04% 23.04% 23.04% 23.04%
     grid-gap: 2.61%
 .Logout
-    margin: 0 auto
-    margin-bottom: 25px
+    margin: 25px auto
     border-radius: 10px
     background: url(~@/assets/img/exit_bg_btn.png)
     +bg

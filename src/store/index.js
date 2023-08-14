@@ -8,6 +8,8 @@ export default createStore({
     promo: [],
     items: [],
     live_items: [],
+    subscriptions: [],
+    allpromo: [],
     IsUserLogIn: true
   },
   getters: {
@@ -31,6 +33,12 @@ export default createStore({
     },
     LIVE_ITEMS(state){
       return state.live_items
+    },
+    SUBSCRIPTIONS(state){
+      return state.subscriptions
+    },
+    ALLPROMO(state){
+      return state.allpromo
     }
   },
   mutations: {
@@ -51,6 +59,12 @@ export default createStore({
     },
     SET_LIVE_ITEMS_TO_STATE: (state, live_items) => {
       state.live_items = live_items
+    },
+    SET_SUBSCRIPTIONS_TO_STATE: (state, subscriptions) => {
+      state.subscriptions = subscriptions
+    },
+    SET_ALLPROMO_TO_STATE: (state, allpromo) => {
+      state.allpromo = allpromo
     }
   },
   actions: {
@@ -98,9 +112,10 @@ export default createStore({
     },
     async GET_PROMO({commit}){
       try {
-        //http://localhost:3000/Promo
-        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promo.json
-        const Promo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promo.json", {
+        //ПЕРЕДЕЛАТЬ
+        //http://localhost:3000/Purchase
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json
+        const Promo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json", {
           method: "GET"
         })
         commit("SET_PROMO_TO_STATE", Promo.data)
@@ -135,6 +150,34 @@ export default createStore({
         return Live_items.data
       } catch (error) {
         console.log("Ошибка при получении Живых Товаров" + error)
+        return error
+      }
+    },
+    async GET_SUBSCRIPTIONS({commit}){
+      try {
+        //http://localhost:3000/Subscriptions
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Subscriptions.json
+        const Subscriptions = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Subscriptions.json", {
+          method: "GET"
+        })
+        commit("SET_SUBSCRIPTIONS_TO_STATE", Subscriptions.data)
+        return Subscriptions.data
+      } catch (error) {
+        console.log("Ошибка при получении Подписки" + error)
+        return error
+      }
+    },
+    async GET_ALLPROMO({commit}){
+      try {
+        //http://localhost:3000/Promocodes
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promocodes.json
+        const Allpromo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promocodes.json", {
+          method: "GET"
+        })
+        commit("SET_ALLPROMO_TO_STATE", Allpromo.data)
+        return Allpromo.data
+      } catch (error) {
+        console.log("Ошибка при получении всех промокодов" + error)
         return error
       }
     }

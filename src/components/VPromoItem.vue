@@ -1,10 +1,9 @@
 <template>
   <div class="promo__item">
-    <div class="item__info">
-        <div class="item__title">{{ VPromoItem.name }}</div>
-        <div class="item__img"><img :src="require(`@/assets/img/${VPromoItem.img}`)" alt="PromoImg"></div>
-    </div>
-    <div class="item__code">{{ VPromoItem.code }}</div>
+    <div class="item__server">{{PromoItem.server}}</div>
+    <div class="item__code">{{PromoItem.code }}</div>
+    <div class="item__summ">{{PromoItem.summ }}</div>
+    <div class="item__date">{{ PromoItem.date }}</div>
   </div>
 </template>
 
@@ -12,7 +11,7 @@
 export default {
     name: "VPromoItem",
     props: {
-        VPromoItem: {
+        PromoItem: {
             type: Object,
             default(){
                 return {}
@@ -24,39 +23,34 @@ export default {
 
 <style lang="sass" scoped>
 .promo__item
-    display: flex
-    margin-top: 22px
-    justify-content: space-between
-.item__info, .item__code
-    height: 97px
-    max-width: 49%
-    width: 100%
     border-radius: 21px
     background: #0D0D10
-    padding: 0px 27px
-.item__info
+    margin-top: 23px
+    padding: 25px 43px
     +flexa
-    justify-content: space-between
-    .item__title
+    div
+        width: 25%
         color: #C7A1AB
         font-size: 16px
-        font-weight: 600
-    .item__img
-        max-width: 96px
-        width: 100%
-.item__code
-    +flexa
-    justify-content: center
-    color: #C7A1AB
-    font-weight: 500
-    font-size: 16px
-@media screen and (max-width: $smalltabletContainer)
-    .item__img
-        display: none
+        font-weight: 500
+    .item__code
+        border-radius: 10px
+        background: linear-gradient(90deg, rgba(211, 16, 39, 0.12) 0%, rgba(234, 56, 77, 0.12) 100%)
+        padding: 14px 50px
+    .item__code, .item__summ
+        text-align: center
+    .item__date
+        text-align: right
+@media screen and (max-width: $tabletContainer)
     .promo__item
         flex-direction: column
-    .item__info, .item__code
-        max-width: 100%
-        justify-content: center
-
+        div
+            width: 100%
+            text-align: center !important
+            margin-bottom: 10px
+            &:last-child
+                margin-bottom: 0px
+@media screen and (max-width: $smalltabletContainer)
+    .promo__item
+        padding: 15px
 </style>

@@ -2,14 +2,21 @@
   <section class="promo">
     <div class="promo__header">
         <div class="header__input">
-            <input type="text" name="Promo" placeholder="Promocode">
+            <input 
+            v-model="Promocode"
+            type="text" 
+            name="Promo" 
+            placeholder="Promocode">
             <select class="select_server">
                 <option value=”GR” disabled selected>Choose server</option>
                 <option value=”EU”>Server 1</option>
                 <option value=”Us”>Server 2</option>
             </select>
         </div>
-        <button class="header__button">Avtivate</button>
+        <button 
+        @click="checkPromo()"
+        class="header__button"
+        >Avtivate</button>
     </div>
     <div class="promo__titles">
         <div class="titles__item item-1">Server</div>
@@ -22,31 +29,51 @@
         v-for="PromoItem in ALLPROMO"
         :key="PromoItem.id"
         :PromoItem="PromoItem"
+        :CloseModal="CloseModal"
         >
         </VPromoItem>
     </div>
   </section>
+  <PromoModal 
+  :Promocode="Promocode"
+  :IsModalOpen="IsModalOpen"
+  v-on:CloseModal="CloseModal"
+  ></PromoModal>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import PromoModal from './PromoModal.vue';
 import VPromoItem from './VPromoItem.vue';
 export default {
     name: "ThePromo",
     mounted() {
         this.GET_ALLPROMO();
     },
+    data: () => {
+        return {
+            IsModalOpen: false,
+            Promocode: ""
+        }
+    },
     methods: {
         ...mapActions([
             'GET_ALLPROMO'
-        ])
+        ]),
+        //Здесь идет проверка на правильность/неправльность промокода. В случае успеха меняем на true
+        checkPromo(){
+            this.IsModalOpen = true
+        },
+        CloseModal(){
+            this.IsModalOpen = false
+        }
     },
     computed: {
         ...mapGetters([
             'ALLPROMO'
         ])
     },
-    components: { VPromoItem }
+    components: { VPromoItem, PromoModal }
 }
 </script>
 

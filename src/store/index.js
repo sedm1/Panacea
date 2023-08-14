@@ -112,7 +112,6 @@ export default createStore({
     },
     async GET_PROMO({commit}){
       try {
-        //ПЕРЕДЕЛАТЬ
         //http://localhost:3000/Purchase
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json
         const Promo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json", {

@@ -56,7 +56,9 @@ export default createStore({
   actions: {
     async GET_PLAYERS_US({commit}){
       try {
-        const UsPlayers = await axios("http://localhost:3000/playersUs", {
+        //http://localhost:3000/playersUs
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersUs.json - для гит
+        const UsPlayers = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersUs.json", {
           method: "GET"
         })
         commit("SET_USPLAYERS_TO_STATE", UsPlayers.data)
@@ -68,7 +70,9 @@ export default createStore({
     },
     async GET_PLAYERS_EU({commit}){
       try {
-        const EuPlayers = await axios("http://localhost:3000/playersEu", {
+        //http://localhost:3000/playersEu - тестовое
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersEu.json - для гита
+        const EuPlayers = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersEu.json", {
           method: "GET"
         })
         commit("SET_EUPLAYERS_TO_STATE", EuPlayers.data)
@@ -80,7 +84,9 @@ export default createStore({
     },
     async GET_STATS({commit}){
       try {
-        const Stats = await axios("http://localhost:3000/Stats", {
+        //http://localhost:3000/Stats - тестовое
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Stats.json - для гит
+        const Stats = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Stats.json", {
           method: "GET"
         })
         commit("SET_STATS_TO_STATE", Stats.data)
@@ -92,7 +98,9 @@ export default createStore({
     },
     async GET_PROMO({commit}){
       try {
-        const Promo = await axios("http://localhost:3000/Promo", {
+        //http://localhost:3000/Promo
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promo.json
+        const Promo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promo.json", {
           method: "GET"
         })
         commit("SET_PROMO_TO_STATE", Promo.data)
@@ -104,7 +112,9 @@ export default createStore({
     },
     async GET_ITEMS({commit}){
       try {
-        const Items = await axios("http://localhost:3000/ItemsForRoulette", {
+        //http://localhost:3000/ItemsForRoulette
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/ItemForRoulette.json
+        const Items = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/ItemForRoulette.json", {
           method: "GET"
         })
         commit("SET_ITEMS_TO_STATE", Items.data)
@@ -116,7 +126,9 @@ export default createStore({
     },
     async GET_LIVE_ITEMS({commit}){
       try {
-        const Live_items = await axios("http://localhost:3000/LiveDropp", {
+        //http://localhost:3000/LiveDropp
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/LiveDrops.json
+        const Live_items = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/LiveDrops.json", {
           method: "GET"
         })
         commit("SET_LIVE_ITEMS_TO_STATE", Live_items.data)

@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkpanacea"]=self["webpackChunkpanacea"]||[]).push([[62],{7062:function(n,a,e){e.r(a),e.d(a,{default:function(){return i}});var r=e(6252);function u(n,a,e,u,c,t){return(0,r.wg)(),(0,r.iD)("div")}var c={},t=e(3744);const f=(0,t.Z)(c,[["render",u]]);var i=f}}]);
-//# sourceMappingURL=62.59a7e622.js.map

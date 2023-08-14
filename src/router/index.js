@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/store',
     name: 'Store',
-    component: () => import("../views/TheStore.vue"),
+    component: () => import("../views/Store.vue"),
     meta: {
       title: "Panacea"
     }

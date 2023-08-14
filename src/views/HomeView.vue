@@ -1,18 +1,92 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <TheHeader></TheHeader>
+  <section class="welcom__section">
+    <div class="main__info">
+      <h1 class="info__descript section__title">We are "Apple" in the world of Dayz. We invest endless amount of time and effort in our creation. We work solely off our own passion and dedication.</h1>
+        <div class="info__buttons"> 
+          <a href="#" class="log__steam" v-if="!USERSTATE">Log in with Steam</a>
+          <a href="#" class="log__steam" v-else>Profile</a>
+          <a href="#" class="discord">Discord</a>
+        </div>
+      <div class="mouse"><img src="../assets/img/svg/icon_mouse.svg" alt="Mouse"></div>
+    </div>
+  </section>
+  <TheMonit></TheMonit>
+  <TheTabs></TheTabs>
+  <TheFooter></TheFooter>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { mapGetters } from 'vuex';
+import TheHeader from '@/components/TheHeader.vue';
+import TheMonit from '@/components/TheMonit.vue';
+import TheTabs from '@/components/TheTabs.vue';
+import TheFooter from '@/components/TheFooter.vue';
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  components: { TheHeader, TheMonit, TheTabs, TheFooter},
+  computed: {
+    ...mapGetters([
+      'USERSTATE'
+    ])
   }
 }
 </script>
+<style lang="sass" scoped>
+.welcom__section
+  background-image: url("~@/assets/img/is_bg.png")
+  +bg
+  background-position: center top
+  height: 100vh
+  +flexa
+  justify-content: center
+  position: relative
+.main__info
+  .info__descript
+    max-width: 560px
+    text-align: center
+  .info__buttons
+    +flexa
+    margin: 0 auto
+    margin-top: 73px
+    max-width: 531px
+    width: 100%
+    justify-content: space-between
+    a
+      padding: 24px 0px
+      width: 254px
+      text-align: center
+      font-weight: 500
+      font-size: 16px
+      border-radius: 10px
+      transition: .3s
+      transform: scale(1.02)
+.log__steam
+  background: #D31027 url("~@/assets/img/welcome_bg_btn.png")
+  &:hover
+    box-shadow: 0px 4px 89px rgba(211,16,39,0.26)
+.discord
+  background: #5865F2 url("~@/assets/img/welcome_bg_btn.png")
+  &:hover
+    box-shadow: 0px 4px 89px rgba(88,101,242,0.26)
+.mouse
+  position: absolute
+  bottom: 107px
+  left: 50%
+  transform: translateX(-50%)
+  animation-duration: 1.9s
+  animation-iteration-count: infinite
+  animation-name: scroll
+@keyframes scroll 
+  0% 
+      opacity: 1
+  
+  100% 
+      opacity: 0
+      transform: translateY(56px)
+@media screen and (max-width: $mobileContainer)
+  .info__buttons
+    flex-direction: column
+  .discord
+    margin-top: 15px
+</style>

@@ -46,7 +46,9 @@
                 <div class="block__item promo" v-if="TabsOpen === 2">
                     <VPurchases></VPurchases>
                 </div>
-                <div class="block__item" v-if="TabsOpen === 3">3</div>
+                <div class="block__item" v-if="TabsOpen === 3">
+                    <VPurch></VPurch>
+                </div>
                 <div class="block__item" v-if="TabsOpen === 4">
                     <VPromo></VPromo>
                 </div>
@@ -68,6 +70,7 @@ import VStatsItem from '@/components/VStatsItem.vue';
 import VPurchases from '@/components/VPurchases.vue';
 import VSubscriptions from '@/components/VSubscriptions.vue';
 import VPromo from '@/components/VPromo.vue';
+import VPurch from '@/components/VPurch.vue';
 export default {
     name: "TheProfile",
     components: {
@@ -76,7 +79,8 @@ export default {
     VStatsItem,
     VPurchases,
     VSubscriptions,
-    VPromo
+    VPromo,
+    VPurch
 },
     mounted(){
         this.GET_STATS()
@@ -194,6 +198,8 @@ aside
         grid-template-columns: 100%
         grid-gap: 16px
 @media screen and (max-width: 500px)
+    .main__block
+        margin-top: 60px
     .Logout
         width: 100%
     .container

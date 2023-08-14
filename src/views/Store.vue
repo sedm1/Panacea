@@ -25,6 +25,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+header
+  z-index: 100000000
 .index  
   overflow: hidden 
   .index_in  

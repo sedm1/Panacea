@@ -95,7 +95,7 @@ export default {
 .container
     display: flex
 header
-    position: static
+    position: static !important
 aside
     width: 240px
     margin-right: 39px

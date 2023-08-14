@@ -83,7 +83,7 @@ export default {
 </script>
 <style lang="sass" scoped>
 header
-  position: static
+  position: static !important
 section.items
   margin-top: 66px
 .items__main

@@ -28,7 +28,7 @@ export default {
 body
     min-height: 100vh
 header
-    position: static
+    position: static !important
 main
     margin-bottom: 200px
 .contacts__info

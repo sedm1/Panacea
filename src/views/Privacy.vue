@@ -51,7 +51,7 @@ export default {
 
 <style lang="sass" scoped>
 header
-    position: static
+    position: static !important
 .privacy
     padding: 37px 30px
     border-radius: 35px

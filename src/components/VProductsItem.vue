@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="products__item">
+            <div class="products__price">${{ ProductsItem.price }}</div>
             <div class="products__img"><img :src="require(`@/assets/img/${ProductsItem.mainImg}`)" alt="ProductsImg"></div>
             <div class="title__block">
                 <h1 class="products__title">{{ ProductsItem.title }}</h1>
@@ -127,4 +128,15 @@ export default {
         &:hover
             background: radial-gradient(50% 1207.81% at 50% 50%,#ea384d 0,#80101e 100%)
             border: 1px solid #ea384d
+    &__price
+        position: absolute
+        top: 0
+        right: 21px
+        background: linear-gradient(180deg,#ffb546,#bb8636)
+        font-weight: 600
+        font-size: 14px
+        color: rgba(0,0,0,.66)
+        padding: 7px 14px
+        border-radius: 0 0 8px 8px
+        z-index: 2
 </style>

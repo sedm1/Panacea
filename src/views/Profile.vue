@@ -153,19 +153,25 @@ aside
         width: 100%
         text-align: left
         position: relative
+        transition: .3s
+        border-radius: 10px
+        &:hover
+            background: linear-gradient(90deg, #D31027 0%, #EA384D 100%)
+            color: rgba(255,255,255,1)
+            img
+                width: 12px
         img
             position: absolute
-            width: 12px
+            width: 0px
             right: 14px
             top: 50%
             transform: translateY(-50%)
-            display: none
+            transition: .3s
         &-active
             background: linear-gradient(90deg, #D31027 0%, #EA384D 100%)
-            border-radius: 10px
             color: rgba(255,255,255,1)
             img
-                display: block
+                width: 12px
 .main__block
     width: 100%
 .stats

@@ -1,7 +1,7 @@
 <template>
   <section class="tabs">
     <div class="container">
-        <aos-vue animation="fade-up"><div class="tabs__header">
+        <aos-vue animation="fade-up" :offset="-200"><div class="tabs__header">
             <div class="info__title">
                 <img class="min__logo" src="../assets/img/logo-2.png" alt="LogoMin">
                 <h1 class="section__title">Statistics</h1>
@@ -21,7 +21,7 @@
             </div>
         </div></aos-vue>
         <div class="scroll">
-            <aos-vue animation="fade-up"><div class="tables">
+            <aos-vue animation="fade-up" :offset="-200"><div class="tables">
                 <div class="tables__titles">
                     <div class="titles__item titles__item-1">Rank</div>
                     <div class="titles__item titles__item-2">Player Name</div>
@@ -107,7 +107,7 @@ export default {
             
 .scroll
     max-width: 100%
-    overflow-x: auto
+    
 .tables
     min-width: 1316px
     margin-top: 66px
@@ -135,6 +135,8 @@ export default {
     max-height: 612px
     overflow-y: scroll
 @media screen and (max-width: $smalltabletContainer)
+    .scroll
+        overflow-x: auto
     .tabs__header
         flex-direction: column
         justify-content: center

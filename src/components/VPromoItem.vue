@@ -24,7 +24,8 @@ export default {
 <style lang="sass" scoped>
 .promo__item
     border-radius: 21px
-    background: #0D0D10
+    background: #0D0D10 url("~@/assets/img/Filterbg.png")
+    +bg
     margin-top: 23px
     padding: 25px 43px
     +flexa

@@ -48,6 +48,11 @@
         </div>
       </section>
     </main>
+    <VRouletteModal
+    :ItemImg="'10.png'"
+    :ItemTitle="'Codelock'"
+    :IsOpen="IsModalOpen"
+    ></VRouletteModal>
     <TheFooter></TheFooter>
   </div>
 </template>
@@ -58,13 +63,19 @@ import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import { mapActions, mapGetters } from 'vuex';
 import VRouletteItem from '@/components/VRouletteItem.vue';
+import VRouletteModal from '@/components/VRouletteModal.vue';
 
 export default {
     name: "TheRoulette",
-    components: { TheHeader, TheFooter, VRouletteItem },
+    components: { TheHeader, TheFooter, VRouletteItem, VRouletteModal },
     mounted(){
       this.GET_ITEMS()
       this.GET_LIVE_ITEMS()
+    },
+    data(){
+      return {
+        IsModalOpen: false
+      }
     },
     methods: {
       ...mapActions([

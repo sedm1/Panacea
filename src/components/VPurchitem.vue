@@ -24,9 +24,10 @@ export default {
 <style lang="sass" scoped>
 .purch__item
     border-radius: 21px
-    background: #0D0D10
+    background: #0D0D10 url("~@/assets/img/Filterbg.png")
+    +bg
     margin-top: 20px
-    padding: 25px 74px
+    padding: 35px 74px
     +flexa
     justify-content: space-between
     div

@@ -51,26 +51,7 @@ export default {
     img
         width: 9px 
         height: 9px
-.modalBg
-    position: absolute
-    width: 100%
-    height: 100vh
-    z-index: $modalIndex
-    top: 0
-    left: 0
-    +flexa
-    justify-content: center
-    transition: .3s
-    transform: scale(0)
-    background: rgba(0, 0, 0, 0.6)
-    &-active
-        transform: scale(1)
-.modal__main
-    background: url(~@/assets/img/server_bg_1.png)
-    +bg
-    border-radius: 21px
-    position: relative
-    padding: 20px 25px
+
 .modal__title
     font-size: 21px
     font-weight: 600

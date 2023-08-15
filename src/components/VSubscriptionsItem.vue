@@ -64,11 +64,14 @@ export default {
         background: linear-gradient(90deg, $red 0%, $pink 100%)
         margin-right: 3px
         opacity: 0.7
+        transition: .3s
         padding: 15px 24px
         font-size: 12px
         font-weight: 500
         &:last-child
             margin-right: 0px
+        &:hover
+            opacity: 1
 .pending
     width: 50%
     text-align: right

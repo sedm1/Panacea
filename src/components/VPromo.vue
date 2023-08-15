@@ -89,6 +89,9 @@ export default {
         background: linear-gradient(90deg, rgba(211, 16, 39, 0.2) 0%, rgba(234, 56, 77, 0.2) 100%)
         border-radius: 10px
         padding: 16px 18px
+        border: 1px solid transparent
+        &:focus
+            border: 1px solid $red
     select
         text-align: center
         font-weight: 500
@@ -102,8 +105,9 @@ export default {
         &:focus
             border: 1px solid $red
     option
-        color: #000
+        color: $white
         text-align: left
+        background: #551219
 .header__button
     padding: 16px 80px
     transition: 0.3s all

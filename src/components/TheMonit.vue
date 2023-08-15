@@ -10,7 +10,7 @@
           <p class="monit__descript">Total online: <span> 82 </span>  survivors</p>
         </div>
         <div class="server">
-          <aos-vue animation="flip-left" :delay="0"><div 
+          <aos-vue animation="flip-left" :delay="100" :offset="-200"><div 
           class="server__block" 
           id="server__block-1"
           style="--pie-p:82%;"
@@ -25,7 +25,7 @@
             </div>
           </div></aos-vue>
 
-          <aos-vue animation="flip-left" :delay="300"><div 
+          <aos-vue animation="flip-left" :delay="300" :offset="-200"><div 
           class="server__block" 
           id="server__block-2"
           style="--pie-p:1%;"

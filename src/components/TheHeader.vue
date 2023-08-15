@@ -99,6 +99,12 @@ header
     li
         margin-right: 58px
         font-weight: 600
+        -webkit-touch-callout: none
+        -webkit-user-select: none
+        -khtml-user-select: none
+        -moz-user-select: none
+        -ms-user-select: none
+        user-select: none
         a
             transition: .4s
             opacity: 0.65
@@ -106,24 +112,25 @@ header
             &::before
                 content: ""
                 position: absolute
-                width: 0%
+                width: 100%
                 bottom: -12px
                 height: 5px
                 background: -webkit-gradient(linear, left top, right top, from(#D31027), to(#EA384D))
                 background: linear-gradient(90deg, #D31027 0%, #EA384D 100%)
                 border-radius: 10px
                 transition: .4s
+                transform: scaleX(0)
         &:last-child
             margin-right: 0px
         &:hover
             a
                 opacity: 1
                 &::before
-                    width: 100%
+                    transform: scaleX(1)
     .router-link-active
         opacity: 1
         &::before
-            width: 100%
+            transform: scaleX(1)
         
 .log_button
     +flexa
@@ -205,11 +212,15 @@ header
     border-radius: 4px
     position: relative
     padding: 12px 16px
+    transition: 0.3s all
     img
         position: absolute
         right: 16px
         top: 50%
         transform: translateY(-50%)
+    &:hover
+        box-shadow: 0px 4px 89px rgba(225,40,62,0.26)
+        transform: scale(1.02)
 .md__button
     display: none
 @media screen and (max-width: $tabletContainer)

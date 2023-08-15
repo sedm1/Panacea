@@ -60,7 +60,8 @@ export default {
       font-size: 16px
       border-radius: 10px
       transition: .3s
-      transform: scale(1.02)
+      &:hover
+        transform: scale(1.02)
 .log__steam
   background: #D31027 url("~@/assets/img/welcome_bg_btn.png")
   &:hover

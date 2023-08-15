@@ -6,4 +6,4 @@ import store from './store'
 //Анимация
 import AosVue from "aos-vue";
 
-createApp(App).use(store).use(router).use(AosVue).mount('#app')
+createApp(App).use(AosVue).use(store).use(router).mount('#app')

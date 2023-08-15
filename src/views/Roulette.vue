@@ -1,5 +1,4 @@
 <template>
-  <!--В таблице для item'ов, которые дожны быть в рулетке есть свойство InRoulette, они и дожны попадать в рулетку-->
   <div>
     <TheHeader></TheHeader>
     <main>
@@ -95,6 +94,9 @@ section.items
 .items__header
   +flexa
   justify-content: space-between
+  .title
+    font-weight: 500
+    font-size: 16px
 .header__title
   +flexa
   .title__img

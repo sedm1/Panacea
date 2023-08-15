@@ -94,10 +94,17 @@ export default {
             background: $gray url(~@/assets/img/bg_tab.png)
             padding: 24px 51px
             border-radius: 10px
+            color: rgba(255,255,255,0.48)
+            transition: .3s
             &:last-child
                 margin-right: 0px
+            &:hover
+                background: linear-gradient(90deg, $red 0%, $pink 100%)
+                color: rgba(255,255,255,1)
         .active
             background: linear-gradient(90deg, $red 0%, $pink 100%)
+            color: rgba(255,255,255,1)
+            
 .scroll
     max-width: 100%
     overflow-x: auto

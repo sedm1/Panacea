@@ -25,12 +25,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-body
-    min-height: 100vh
 header
     position: static !important
 main
     margin-bottom: 200px
+    min-height: calc(100vh - 157px - 400px)
 .contacts__info
     padding: 37px 30px
     border-radius: 35px

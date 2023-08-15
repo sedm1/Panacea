@@ -58,6 +58,19 @@
             </div>
         </div>
     </main>
+    
+    <VModalSucsesful
+    :IsOpen="IsSucsessModalOpen"
+    v-on:CloseModalSucses="CloseModalSucses"
+    ></VModalSucsesful>
+    <VErrorModal
+    :IsOpen="IsErrorModalOpen"
+    v-on:CloseModalError="CloseModalError"
+    ></VErrorModal>
+    <!--Как должна примерно выглядеть кнопка включения модального окна -->
+    <!--<button @click="IsSucsessModalOpen = true">Кликни на меня</button>-->
+
+    
     <TheFooter></TheFooter>
   </div>
 </template>
@@ -71,6 +84,8 @@ import VPurchases from '@/components/VPurchases.vue';
 import VSubscriptions from '@/components/VSubscriptions.vue';
 import VPromo from '@/components/VPromo.vue';
 import VPurch from '@/components/VPurch.vue';
+import VModalSucsesful from '@/components/VModalSucsesful.vue';
+import VErrorModal from '@/components/VErrorModal.vue';
 export default {
     name: "TheProfile",
     components: {
@@ -80,7 +95,9 @@ export default {
     VPurchases,
     VSubscriptions,
     VPromo,
-    VPurch
+    VPurch,
+    VModalSucsesful,
+    VErrorModal
 },
     mounted(){
         this.GET_STATS()
@@ -88,7 +105,13 @@ export default {
     methods: {
         ...mapActions([
             'GET_STATS'
-        ])
+        ]),
+        CloseModalSucses(){
+            this.IsSucsessModalOpen = false
+        },
+        CloseModalError(){
+            this.IsErrorModalOpen = false
+        }
     },
     computed: {
         ...mapGetters([
@@ -97,7 +120,9 @@ export default {
     },
     data: () => {
         return {
-            TabsOpen: 1
+            TabsOpen: 1,
+            IsSucsessModalOpen: false,
+            IsErrorModalOpen: false
         }
     }
 }

@@ -53,6 +53,20 @@
     :ItemTitle="'Codelock'"
     :IsOpen="IsModalOpen"
     ></VRouletteModal>
+
+
+    <VModalSucsesful
+    :IsOpen="IsSucsessModalOpen"
+    v-on:CloseModalSucses="CloseModalSucses"
+    ></VModalSucsesful>
+    <VErrorModal
+    :IsOpen="IsErrorModalOpen"
+    v-on:CloseModalError="CloseModalError"
+    ></VErrorModal>
+    <!--Как должна примерно выглядеть кнопка включения модального окна -->
+    <!--<button @click="IsSucsessModalOpen = true">Кликни на меня</button>-->
+
+
     <TheFooter></TheFooter>
   </div>
 </template>
@@ -64,17 +78,20 @@ import TheFooter from '@/components/TheFooter.vue';
 import { mapActions, mapGetters } from 'vuex';
 import VRouletteItem from '@/components/VRouletteItem.vue';
 import VRouletteModal from '@/components/VRouletteModal.vue';
-
+import VModalSucsesful from '@/components/VModalSucsesful.vue';
+import VErrorModal from '@/components/VErrorModal.vue';
 export default {
     name: "TheRoulette",
-    components: { TheHeader, TheFooter, VRouletteItem, VRouletteModal },
+    components: { TheHeader, TheFooter, VRouletteItem, VRouletteModal,VModalSucsesful,VErrorModal },
     mounted(){
       this.GET_ITEMS()
       this.GET_LIVE_ITEMS()
     },
     data(){
       return {
-        IsModalOpen: false
+        IsModalOpen: false,
+        IsSucsessModalOpen: false,
+        IsErrorModalOpen: false
       }
     },
     methods: {
@@ -82,6 +99,12 @@ export default {
         'GET_ITEMS',
         'GET_LIVE_ITEMS'
       ]),
+      CloseModalSucses(){
+        this.IsSucsessModalOpen = false
+      },
+      CloseModalError(){
+        this.IsErrorModalOpen = false
+      }
     },
     computed: {
       ...mapGetters([

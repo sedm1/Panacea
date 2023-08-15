@@ -55,4 +55,10 @@ export default {
         font-size: 32px
         font-weight: 700
         line-height: 31px
+@media screen and (max-width: $mobileContainer)
+    .modal__error
+        padding: 35px
+    .error__header
+        .error__title
+            font-size: 25px
 </style>

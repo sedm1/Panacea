@@ -63,8 +63,12 @@ export default {
         //Здесь идет проверка на правильность/неправльность промокода. В случае успеха меняем на true
         checkPromo(){
             this.IsModalOpen = true
+            var body = document.body
+            body.classList.toggle('openBody')
         },
         CloseModal(){
+            var body = document.body
+            body.classList.remove('openBody')
             this.IsModalOpen = false
         }
     },
@@ -129,6 +133,8 @@ export default {
         text-align: right
 .promo__main
     margin-top: 4px
+    max-height: 650px
+    overflow-y: auto
 @media screen and (max-width: $tabletContainer)
     .promo__titles
         display: none

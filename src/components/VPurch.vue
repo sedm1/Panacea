@@ -78,6 +78,10 @@ export default {
             text-align: center
         &:nth-child(4)
             text-align: right
+.purch__main
+    max-height: 650px
+    overflow-y: auto
+    margin-top: 20px
 @media screen and (max-width: $smalltabletContainer)
     .purch__titles
         display: none

@@ -11,6 +11,7 @@ export default createStore({
     subscriptions: [],
     allpromo: [],
     purchhistory: [],
+    products: [],
     IsUserLogIn: true
   },
   getters: {
@@ -43,6 +44,9 @@ export default createStore({
     },
     PURCHHISTORY(state){
       return state.purchhistory
+    },
+    PRODUCTS(state){
+      return state.products
     }
   },
   mutations: {
@@ -72,6 +76,9 @@ export default createStore({
     },
     SET_PURCHHISTORY_TO_STATE: (state, purchhistory) => {
       state.purchhistory = purchhistory
+    },
+    SET_PRODUCTS_TO_STATE: (state, products) => {
+      state.products = products
     }
   },
   actions: {
@@ -196,6 +203,20 @@ export default createStore({
         })
         commit("SET_PURCHHISTORY_TO_STATE", PurchHistory.data)
         return PurchHistory.data
+      } catch (error) {
+        console.log("Ошибка при получении всех промокодов" + error)
+        return error
+      }
+    },
+    async GET_PRODUCTS({commit}){
+      try {
+        //http://localhost:3000/Products
+        //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Products.json
+        const Products = await axios("http://localhost:3000/Products", {
+          method: "GET"
+        })
+        commit("SET_PRODUCTS_TO_STATE", Products.data)
+        return Products.data
       } catch (error) {
         console.log("Ошибка при получении всех промокодов" + error)
         return error

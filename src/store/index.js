@@ -212,7 +212,7 @@ export default createStore({
       try {
         //http://localhost:3000/Products
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Products.json
-        const Products = await axios("http://localhost:3000/Products", {
+        const Products = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Products.json", {
           method: "GET"
         })
         commit("SET_PRODUCTS_TO_STATE", Products.data)

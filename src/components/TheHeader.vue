@@ -75,8 +75,6 @@ export default {
     methods: {
         OpenModal(){
             this.IsMenuOpen = !this.IsMenuOpen
-            var body = document.body
-            body.classList.toggle('openBody')
         }
     }
 }

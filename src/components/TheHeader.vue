@@ -86,7 +86,7 @@ header
     position: absolute
     top: 0
     width: 100%
-    z-index: $absIndex
+    z-index: $modalIndex
     .container
         +flexa
         justify-content: space-between

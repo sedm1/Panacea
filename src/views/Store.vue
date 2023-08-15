@@ -60,4 +60,14 @@ header
   gap: 27px
   max-width: 1105px
   margin: 0 auto
+@media screen and (max-width:$tabletContainer)
+  .products
+    grid-template-columns: repeat(3,1fr)
+@media screen and (max-width:$smalltabletContainer)
+  .products
+    grid-template-columns: repeat(2,1fr)
+  
+@media screen and (max-width: $mobileContainer)
+  .products
+    grid-template-columns: repeat(1,1fr)
 </style>

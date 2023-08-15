@@ -93,8 +93,13 @@ export default {
         border-radius: 9px
         padding: 31px
         margin-bottom: 14px
-        width: 229px
+        width: 100%
         height: 195px
+        +flexa
+        justify-content: center
+        img
+            max-width: 216px
+            max-height: 160px
     &__info
         transition: .3s
         &:hover

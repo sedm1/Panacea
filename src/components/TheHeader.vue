@@ -74,6 +74,7 @@ export default {
     },
     methods: {
         OpenModal(){
+            
             this.IsMenuOpen = !this.IsMenuOpen
         }
     }

@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import store from '@/store/index.js'
 const routes = [
   {
     path: "/",
     name: "homeview",
     component: () => import('../views/HomeView.vue'),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: false
     }
   },
   {
@@ -14,7 +15,8 @@ const routes = [
     name: 'Store',
     component: () => import("../views/Store.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: false
     }
   },
   {
@@ -22,7 +24,8 @@ const routes = [
     name: 'roulette',
     component: () => import("../views/Roulette.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: true
     }
   },
   {
@@ -30,7 +33,8 @@ const routes = [
     name: 'contacts',
     component: () => import("../views/Contacts.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: false
     }
   },
   {
@@ -38,7 +42,8 @@ const routes = [
     name: 'privacy',
     component: () => import("../views/Privacy.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: false
     }
   },
   {
@@ -46,7 +51,8 @@ const routes = [
     name: 'terms',
     component: () => import("../views/Terms.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: false
     }
   }
   ,
@@ -55,7 +61,8 @@ const routes = [
     name: 'profile',
     component: () => import("../views/Profile.vue"),
     meta: {
-      title: "Panacea"
+      title: "Panacea",
+      requiresLogin: true,
     }
   }
 ]
@@ -64,7 +71,13 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresLogin) && store.state.IsUserLogIn == false) {
+    next({path: '/Terms'})
+  } else {
+    next()
+  }
+})
 export default router
 const DEFAULT_TITLE = 'Panacea';
 router.beforeEach((to) => {

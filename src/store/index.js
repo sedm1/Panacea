@@ -11,7 +11,7 @@ export default createStore({
     subscriptions: [],
     allpromo: [],
     purchhistory: [],
-    IsUserLogIn: true
+    IsUserLogIn: false
   },
   getters: {
     PLAYERSUS(state){

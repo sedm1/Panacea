@@ -155,4 +155,12 @@ export default {
         overflow-y: scroll
     .modal__title
         margin-top: 20px
+@media screen and (max-width: 400px) and (max-height: 570px)
+    .swiper-slide img
+        max-width: 85%
+        max-height: 200px
+        width: auto
+    .modal__title
+        font-size: 25px
+        margin-bottom: 30px
 </style>

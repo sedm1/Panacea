@@ -4,7 +4,7 @@
     <div class="main__info">
       <aos-vue animation="fade-up" :delay="500" :offset="-200"><h1 class="info__descript section__title">We are "Apple" in the world of Dayz. We invest endless amount of time and effort in our creation. We work solely off our own passion and dedication.</h1></aos-vue>
       <aos-vue animation="fade-up" :delay="1300" :offset="-200"><div class="info__buttons"> 
-          <a href="#" class="log__steam" v-if="!USERSTATE">Log in with Steam</a>
+          <a href="#" class="log__steam" v-if="!USER.IsUserLogIn">Log in with Steam</a>
           <a href="#" class="log__steam" v-else>Profile</a>
           <a href="#" class="discord">Discord</a>
         </div>
@@ -28,7 +28,7 @@ export default {
   components: { TheHeader, TheMonit, TheTabs, TheFooter},
   computed: {
     ...mapGetters([
-      'USERSTATE'
+      'USER'
     ])
   }
 }

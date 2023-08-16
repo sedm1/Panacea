@@ -11,13 +11,13 @@
                     <router-link to="/store">Store</router-link>
                 </li>
                 <li>
-                    <router-link to="/fakepage" v-if="!USERSTATE">Log in with Steam</router-link>
+                    <router-link to="/fakepage" v-if="!USER.IsUserLogIn">Log in with Steam</router-link>
                     <router-link to="/Roulette" v-else>Roulette</router-link>
                 </li>
             </ul>
         </nav>
         <div class="right_header">
-            <a class="log_button" v-if="!USERSTATE">
+            <a class="log_button" v-if="!USER.IsUserLogIn">
                 <span>Account</span>
                 <img src="../assets/img/svg/icon_profile.svg" alt="IconProfile">
             </a>
@@ -26,8 +26,8 @@
             @click="IsLoginModalOpen = !IsLoginModalOpen"
             >
                 <div class="user__info">
-                    <div class="user__name">Sedm1 <img src="../assets/img/svg/arrow.svg" alt="arrow"></div>
-                    <div class="user__balance">$0.00</div>
+                    <div class="user__name">{{ USER.name }} <img src="../assets/img/svg/arrow.svg" alt="arrow"></div>
+                    <div class="user__balance">${{USER.balance}}</div>
                 </div>
                 <div class="user__img"><img src="../assets/img/user.jpg" alt="UserImg"></div>
             </button>
@@ -63,7 +63,7 @@ export default {
     name: "TheHeader",
     computed: {
         ...mapGetters([
-            'USERSTATE'
+            'USER'
         ])
     },
     data: () => {

@@ -72,7 +72,7 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresLogin) && store.state.IsUserLogIn == false) {
+  if (to.matched.some(record => record.meta.requiresLogin) && store.state.user.IsUserLogIn == false) {
     next({path: '/Terms'})
   } else {
     next()

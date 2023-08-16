@@ -12,7 +12,14 @@ export default createStore({
     allpromo: [],
     purchhistory: [],
     products: [],
-    IsUserLogIn: true
+    user: {
+      name: 'Sedm1',
+      IsUserLogIn: true,
+      balance: "0.00",
+      img: "user.jpg",
+      level: 1
+    }
+    
   },
   getters: {
     PLAYERSUS(state){
@@ -21,8 +28,8 @@ export default createStore({
     PLAYERSEU(state){
       return state.playersEu
     },
-    USERSTATE(state){
-      return state.IsUserLogIn
+    USER(state){
+      return state.user
     },
     STATS(state){
       return state.stats

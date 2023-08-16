@@ -7,11 +7,12 @@
             type="text" 
             name="Promo" 
             placeholder="Promocode">
-            <select class="select_server">
-                <option value=”GR” disabled selected>Choose server</option>
-                <option value=”EU”>Server 1</option>
-                <option value=”Us”>Server 2</option>
-            </select>
+            <CustomSelect
+            :options="['Server 1', 'Server 2']"
+            :default="'Choose server'"
+            class="select_server"
+            >
+            </CustomSelect>
         </div>
         <button 
         @click="checkPromo()"
@@ -45,6 +46,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import PromoModal from './PromoModal.vue';
 import VPromoItem from './VPromoItem.vue';
+import CustomSelect from '@/components/CustomSelect2.vue'
 export default {
     name: "ThePromo",
     mounted() {
@@ -77,7 +79,7 @@ export default {
             'ALLPROMO'
         ])
     },
-    components: { VPromoItem, PromoModal }
+    components: { VPromoItem, PromoModal,CustomSelect }
 }
 </script>
 
@@ -121,6 +123,8 @@ export default {
     font-size: 12px
     &:hover
         transform: scale(1.05)
+.header__input
+    +flexa
 .promo__titles
     +flexa
     margin-top: 34px

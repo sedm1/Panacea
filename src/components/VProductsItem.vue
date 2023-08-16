@@ -19,12 +19,25 @@
         v-if="ProductsItem.type === 'tovar'"
         :IsActive="IsFullInfo"
         :ProductsItem="ProductsItem"
-        v-on:ClodeProductModal="ClodeProductModal"
+        v-on:CloseProductModal="CloseProductModal"
         ></VProductItemModal>
+        <VDonatModal
+        v-if="ProductsItem.type === 'donat'"
+        :IsOpen="IsDonateOpen"
+        v-on:CloseProductModal="CloseProductModal"
+        ></VDonatModal>
+        <VPriorityModal
+        v-if="ProductsItem.type === 'usluga'"
+        v-on:CloseProductModal="CloseProductModal"
+        :IsOpen="IsUslugaOpen"
+        ></VPriorityModal>
+
     </div>
 </template>
 
 <script>
+import VDonatModal from './VDonatModal.vue';
+import VPriorityModal from './VPriorityModal.vue';
 import VProductItemModal from './VProductItemModal.vue';
 
 export default {
@@ -39,10 +52,12 @@ export default {
     },
     data: () => {
         return {
-            IsFullInfo: false
+            IsFullInfo: false,
+            IsDonateOpen: false,
+            IsUslugaOpen: false
         };
     },
-    components: { VProductItemModal },
+    components: { VProductItemModal, VDonatModal, VPriorityModal },
     methods: {
         CheckProductModal(){
             document.body.classList.add('openBody')
@@ -50,12 +65,18 @@ export default {
                 case "tovar":
                     this.IsFullInfo = true
                     break
+                case "donat":
+                    this.IsDonateOpen = true
+                    break
+                case "usluga":
+                    this.IsUslugaOpen = true
+                    break
                 default:
                     console.log("Не тот тип")
             }
             
         },
-        ClodeProductModal(type){
+        CloseProductModal(type){
             document.body.classList.remove('openBody')
             switch(type){
                 case "tovar":
@@ -63,9 +84,20 @@ export default {
                     //Ниже должна быть проверка, прошла ли операция или нет. А после нее уже вызывать emit (аргумент принимать 'sucses' или 'error')
                     this.$emit('OpenModal', 'sucses')
                     break
+                case "donat":
+                    this.IsDonateOpen = false
+                    //Ниже должна быть проверка, прошла ли операция или нет. А после нее уже вызывать emit (аргумент принимать 'sucses' или 'error')
+                    this.$emit('OpenModal', 'sucses')
+                    break
+                case "usluga":
+                    this.IsUslugaOpen = false
+                    this.$emit('OpenModal', 'sucses')
+                    break
                 //type может принимать 'close', если нужно просто закрыть
                 default: 
+                    this.IsDonateOpen = false
                     this.IsFullInfo = false
+                    this.IsUslugaOpen = false
             }
             
             

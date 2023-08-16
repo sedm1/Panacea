@@ -5,9 +5,9 @@
         <div class="container">
             <aside>
                 <div class="profile">
-                    <div class="profile__logo"><img src="../assets/img/user.jpg" alt="user"></div>
-                    <div class="profile__name">Sedm1</div>
-                    <div class="profile__level">Level 1</div>
+                    <div class="profile__logo"><img :src="require(`@/assets/img/${USER.img}`)" alt="user"></div>
+                    <div class="profile__name">{{ USER.name }}</div>
+                    <div class="profile__level">Level {{ USER.level }}</div>
                 </div>
                 <div class="tabs">
                     <button 
@@ -115,7 +115,8 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'STATS'
+            'STATS',
+            'USER'
         ])
     },
     data: () => {

@@ -1,8 +1,8 @@
 <template>
   <div class="modalBg" :class="{'modalBg-active': IsActive === true}">
     <div class="modal__item">
-        <button 
-        @click="this.$emit('ClodeProductModal')"
+        <button
+        @click="this.$emit('ClodeProductModal', 'close')"
         class="modal__close"><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-v-99b80dba="" d="M1.6 16L0 14.4L6.4 8L0 1.6L1.6 0L8 6.4L14.4 0L16 1.6L9.6 8L16 14.4L14.4 16L8 9.6L1.6 16Z" fill="white" fill-opacity="0.2"></path></svg></button>
         <div class="slider__block">
             <Swiper
@@ -24,7 +24,7 @@
             v-for="(desc, index) in ProductsItem.fullDescription"
             :key="index"
             >{{ ProductsItem.fullDescription[index] }}</p>
-            <button class="pur">Purchase</button>
+            <button class="pur" @click="this.$emit('ClodeProductModal', ProductsItem.type)">Purchase</button>
         </div>
     </div>
   </div>

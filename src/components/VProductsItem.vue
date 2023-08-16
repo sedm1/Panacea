@@ -16,6 +16,7 @@
             >Купить</button>
         </div>
         <VProductItemModal
+        v-if="ProductsItem.type === 'tovar'"
         :IsActive="IsFullInfo"
         :ProductsItem="ProductsItem"
         v-on:ClodeProductModal="ClodeProductModal"
@@ -44,8 +45,7 @@ export default {
     components: { VProductItemModal },
     methods: {
         CheckProductModal(){
-            var body = document.body
-            body.classList.add('openBody')
+            document.body.classList.add('openBody')
             switch(this.ProductsItem.type){
                 case "tovar":
                     this.IsFullInfo = true
@@ -55,10 +55,20 @@ export default {
             }
             
         },
-        ClodeProductModal(){
-            var body = document.body
-            body.classList.remove('openBody')
-            this.IsFullInfo = false
+        ClodeProductModal(type){
+            document.body.classList.remove('openBody')
+            switch(type){
+                case "tovar":
+                    this.IsFullInfo = false
+                    //Ниже должна быть проверка, прошла ли операция или нет. А после нее уже вызывать emit (аргумент принимать 'sucses' или 'error')
+                    this.$emit('OpenModal', 'sucses')
+                    break
+                //type может принимать 'close', если нужно просто закрыть
+                default: 
+                    this.IsFullInfo = false
+            }
+            
+            
         }
     }
 }

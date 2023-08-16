@@ -46,7 +46,14 @@ export default {
         CheckProductModal(){
             var body = document.body
             body.classList.add('openBody')
-            this.IsFullInfo = true
+            switch(this.ProductsItem.type){
+                case "tovar":
+                    this.IsFullInfo = true
+                    break
+                default:
+                    console.log("Не тот тип")
+            }
+            
         },
         ClodeProductModal(){
             var body = document.body

@@ -151,10 +151,13 @@ export default {
     .modal__title
         font-size: 28px
     .desc-block
-        max-height: 100px
+        max-height: 90px
         overflow-y: scroll
     .modal__title
         margin-top: 20px
+@media screen and (max-width: 450px)
+    .slider__block
+        max-width: 80%
 @media screen and (max-width: 400px) and (max-height: 570px)
     .swiper-slide img
         max-width: 85%
@@ -162,5 +165,5 @@ export default {
         width: auto
     .modal__title
         font-size: 25px
-        margin-bottom: 30px
+        margin-bottom: 20px
 </style>

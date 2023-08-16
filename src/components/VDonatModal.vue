@@ -79,6 +79,9 @@ export default {
         max-width: 500px
         width: 100%
         padding: 35px
+        max-height: 80vh
+        overflow-y: auto
+        padding-bottom: 60px
     &__title
         font-size: 32px
         font-weight: 700

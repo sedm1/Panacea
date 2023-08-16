@@ -20,10 +20,13 @@
         </div>
         <div class="info__block">
             <h1 class="modal__title">{{ ProductsItem.title }}</h1>
-            <p class="modal__descript"
-            v-for="(desc, index) in ProductsItem.fullDescription"
-            :key="index"
-            >{{ ProductsItem.fullDescription[index] }}</p>
+            <div class="desc-block">
+                <p class="modal__descript"
+                v-for="(desc, index) in ProductsItem.fullDescription"
+                :key="index"
+                >{{ ProductsItem.fullDescription[index] }}</p>
+            </div>
+            
             <button class="pur" @click="this.$emit('CloseProductModal', ProductsItem.type)">Purchase</button>
         </div>
     </div>
@@ -75,7 +78,6 @@ export default {
     justify-content: space-between
     position: relative
     max-height: 100vh
-    overflow-y: auto
 .slider__block
     max-width: 420px
     width: 100%
@@ -123,7 +125,6 @@ export default {
         max-width: 85%
 .swiper
     height: 100%
-
 @media screen and (max-width: $smalltabletContainer)
     .swiper-slide
         padding: 40px 0px
@@ -149,4 +150,9 @@ export default {
         margin-top: 30px
     .modal__title
         font-size: 28px
+    .desc-block
+        max-height: 100px
+        overflow-y: scroll
+    .modal__title
+        margin-top: 20px
 </style>

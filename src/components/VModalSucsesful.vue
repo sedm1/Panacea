@@ -35,14 +35,16 @@ export default {
 .modal__sucsesful
     border-radius: 17px
     background: linear-gradient(162deg, #541921 0%, #17090B 100%)
-    position: absolute
+    position: fixed
     top: 10px
     right: 10px
     z-index: $absIndex
-    padding: 50px
+    padding: 15px 20px
     border: 1px solid $pink
     transform: scale(0)
     transition: .4s
+    max-width: 400px
+    width: 100%
     &-active
         transform: scale(1)
 .suc__header
@@ -52,21 +54,21 @@ export default {
         width: 20px
         height: 20px
     .suc__title
-        font-size: 32px
+        font-size: 21px
         font-weight: 700
 .suc__main
     margin-top: 15px
     .suc__descript
-        font-size: 16px
+        font-size: 12px
         font-weight: 700
 @media screen and (max-width: $mobileContainer)
     .modal__sucsesful
-        padding: 35px
+        padding: 20px
+        width: 100%
+        top: 0
+        right: 0
     .suc__header 
         .suc__title
             font-size: 25px
-    .suc__main
-        .suc__descript
-            font-size: 12px
     
 </style>

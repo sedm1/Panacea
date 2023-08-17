@@ -117,6 +117,9 @@ export default {
     transition: .3s
     &:hover
         transform: scale(1.3)
+        svg
+            path
+                fill-opacity: .5
 .swiper-slide
     display: flex !important
     align-items: center

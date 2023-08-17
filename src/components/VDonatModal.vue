@@ -35,7 +35,12 @@
                 >100<span>$</span>
                 </button>
             </div>
-            <input type="number" class="another__amount" placeholder="Other amount">
+            <input 
+            v-model="SummInput"
+            type="number" 
+            min="0"
+            class="another__amount" 
+            placeholder="Other amount">
             <textarea class="modal__text" placeholder="comment"></textarea>
             <button 
             @click="this.$emit('CloseProductModal', 'donat')"
@@ -62,7 +67,16 @@ export default {
     },
     data: () => {
         return {
-            ActiveButton: 0
+            ActiveButton: 0,
+            SummInput: ""
+        }
+    },
+    watch: {
+        SummInput(){
+            if(this.SummInput != 0) this.ActiveButton = 0
+        },
+        ActiveButton(){
+            if (this.ActiveButton != 0) this.SummInput = ""
         }
     }
 }
@@ -158,6 +172,9 @@ export default {
     transition: .3s
     &:hover
         transform: scale(1.3)
+        svg
+            path
+                fill-opacity: .5
 @media screen and (max-width: 500px)
     .amount
         flex-wrap: wrap

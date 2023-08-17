@@ -31,15 +31,16 @@ export default {
 .modal__error
     border-radius: 17px
     background: linear-gradient(162deg, #541921 0%, #17090B 100%)
-    position: absolute
+    position: fixed
     top: 10px
     right: 10px
     z-index: $absIndex
-    padding: 50px
+    padding: 15px 20px
     border: 1px solid $pink
     transform: scale(0)
     transition: .4s
-    max-width: 460px
+    max-width: 400px
+    width: 100%
     &-active
         transform: scale(1)
 .error__header
@@ -52,12 +53,15 @@ export default {
     .error__title
         color: $red
         text-edge: cap
-        font-size: 32px
+        font-size: 21px
         font-weight: 700
         line-height: 31px
 @media screen and (max-width: $mobileContainer)
     .modal__error
         padding: 35px
+        width: 100%
+        top: 0
+        right: 0
     .error__header
         .error__title
             font-size: 25px

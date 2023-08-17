@@ -77,6 +77,9 @@ export default {
     transition: .3s
     &:hover
         transform: scale(1.3)
+        svg
+            path
+                fill-opacity: .5
 .select
     +flexa 
     justify-content: space-between

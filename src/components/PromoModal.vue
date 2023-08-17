@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.modal__main
+    max-width: 600px
 .clode__btn
     position: absolute
     top: 20px 
@@ -70,6 +72,10 @@ export default {
     width: 100%
     border-radius:10px
     text-align: left
+    transition: .3s
+    &:hover
+        background-color: $pink
+        color: #ffffff
     &__title
         font-size: 21px
         margin-bottom: 10px

@@ -1,7 +1,7 @@
 <template>
   <section class="tabs">
     <div class="container">
-        <aos-vue animation="fade-up" :offset="-200"><div class="tabs__header">
+        <aos-vue animation="fade-up" :offset="-250"><div class="tabs__header">
             <div class="info__title">
                 <img class="min__logo" src="../assets/img/logo-2.png" alt="LogoMin">
                 <h1 class="section__title">Statistics</h1>
@@ -21,7 +21,7 @@
             </div>
         </div></aos-vue>
         <div class="scroll">
-            <aos-vue animation="fade-up" :offset="-200"><div class="tables">
+            <aos-vue animation="fade-up" :offset="-250"><div class="tables">
                 <div class="tables__titles">
                     <div class="titles__item titles__item-1">Rank</div>
                     <div class="titles__item titles__item-2">Player Name</div>

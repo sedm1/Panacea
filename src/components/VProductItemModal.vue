@@ -1,5 +1,5 @@
 <template>
-  <div class="modalBg" :class="{'modalBg-active': IsActive === true}">
+  <div class="modalBg blur" :class="{'modalBg-active': IsActive === true}">
     <div class="modal__item">
         <button
         @click="this.$emit('CloseProductModal', 'close')"
@@ -169,4 +169,8 @@ export default {
     .modal__title
         font-size: 25px
         margin-bottom: 20px
+@supports (-webkit-touch-callout: none)
+    @media screen and (max-width: $mobileContainer)
+        .modalBg
+            padding-bottom: 30px
 </style>

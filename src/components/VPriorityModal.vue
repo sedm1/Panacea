@@ -1,5 +1,5 @@
 <template>
-  <div class="modalBg" :class="{'modalBg-active': IsOpen === true}">
+  <div class="modalBg blur" :class="{'modalBg-active': IsOpen === true}">
     <div class="priority__modal">
         <button
         @click="this.$emit('CloseProductModal', 'close')"

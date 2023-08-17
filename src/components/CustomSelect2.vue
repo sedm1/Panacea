@@ -94,6 +94,8 @@
         z-index: 1 
         border: 1px solid $red
         border-top: 1px solid transparent
+        height: 96px
+        transition: .5s
         div 
             color: #fff 
             padding-left: 1em 
@@ -105,7 +107,8 @@
             &:hover 
                 background-color: #604246
 .selectHide 
-    display: none 
+  height: 0px !important
+  border: 0px solid $red !important
 @media screen and (max-width: $smalltabletContainer)
   .custom-select
     width: 100%

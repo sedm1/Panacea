@@ -1,9 +1,16 @@
 <template>
   <section class="purch">
     <div class="purch__header">
-        <form action="#">
-            <input class="header__input" type="text" placeholder="Deposit money">
-            <button class="header__button">Deposit</button>
+        <form >
+            <input 
+            class="header__input" 
+            v-model="cost"
+            type="text" 
+            placeholder="Deposit money">
+            <button 
+            @click="IsModalOpen = true"
+            class="header__button" 
+            type="button">Deposit</button>
         </form>
     </div>
     <div class="purch__titles">
@@ -19,11 +26,17 @@
         :VPurchItem="VPurchItem"
         ></VPurchitem>
     </div>
+    <VPaymentModal 
+    :IsOpen="IsModalOpen"
+    :cost="cost"
+    v-on:CLoseModal="CLoseModal"
+    ></VPaymentModal>
   </section>
 </template>
 
 <script>
 import { mapActions,mapGetters } from 'vuex'
+import VPaymentModal from './VPaymentModal.vue';
 import VPurchitem from './VPurchitem.vue';
 export default {
     name: "ThePurch",
@@ -33,14 +46,23 @@ export default {
     methods: {
         ...mapActions([
             'GET_PURCHHISTORY'
-        ])
+        ]),
+        CLoseModal(){
+            this.IsModalOpen = false
+        }
     },
     computed: {
         ...mapGetters([
             'PURCHHISTORY'
         ])
     },
-    components: { VPurchitem }
+    data: () => {
+        return {
+            cost: "",
+            IsModalOpen: false
+        }
+    },
+    components: { VPurchitem, VPaymentModal }
 }
 </script>
 

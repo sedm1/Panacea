@@ -1,6 +1,12 @@
 <template>
   <div class="roulette__item" 
-  :class="{'rare-1': RouletteItems.rare === '1','rare-2': RouletteItems.rare === '2','rare-3': RouletteItems.rare === '3','rare-4': RouletteItems.rare === '4'}"
+  :class="{
+  'rare-1': RouletteItems.rare === '1',
+  'rare-2': RouletteItems.rare === '2',
+  'rare-3': RouletteItems.rare === '3',
+  'rare-4': RouletteItems.rare === '4',
+  'border': RouletteItems.light === true
+  }"
   >
     <div class="item__img"><img :src="require(`@/assets/img/${RouletteItems.img}`)" alt="RouletteItem"></div>
     <div class="item__title">{{ RouletteItems.title }}</div>
@@ -27,6 +33,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.rare-4.border
+    border: 1px solid $pink
+.rare-3.border
+    border: 1px solid #2f0b30
+.rare-2.border
+    border: 1px solid #006EFF
+.rare-1.border
+    border: 1px solid #2f2f32
 .roulette__item
     padding:10px
     border-radius: 10px

@@ -1,5 +1,5 @@
 <template>
-  <div class="modalBg" :class="{'modalBg-active': IsOpen === true}">
+  <div class="modalBg blur" :class="{'modalBg-active': IsOpen === true}">
     <div class="modal__donat">
         <h1 class="modal__title">Donation</h1>
         <p class="modal__descript">Donate to Panacea Project and its development</p>
@@ -93,8 +93,7 @@ export default {
         max-width: 500px
         width: 100%
         padding: 35px
-        max-height: 80vh
-        overflow-y: auto
+        max-height: 100vh
         padding-bottom: 60px
     &__title
         font-size: 32px
@@ -175,16 +174,34 @@ export default {
         svg
             path
                 fill-opacity: .5
-@media screen and (max-width: 500px)
+@media screen and (max-width: $mobileContainer)
+    .modal__donat
+        padding: 15px
     .amount
         flex-wrap: wrap
+        margin-bottom: 10px
     .amount__item
-        max-width: 40%
+        max-width: 90px
         width: 100%
-        padding: 30px 0px
-        margin-bottom: 15px
+        padding: 15px 0px
+        margin-bottom: 10px
         &::nth-child(3), &::nth-child(4)
             margin-bottom: 0px
     .donate
         max-width: 100%
+    .another__amount
+        padding: 15px 0px
+        margin-bottom: 10px
+    .modal
+        &__title
+            font-size: 25px
+        &__descript
+            font-size: 12px
+            margin-bottom: 20px
+    .form__title
+        font-size: 14px
+        margin-bottom: 10px
+    .modal__text
+        height: 75px
+        margin-bottom: 15px
 </style>

@@ -172,5 +172,5 @@ export default {
 @supports (-webkit-touch-callout: none)
     @media screen and (max-width: $mobileContainer)
         .modalBg
-            padding-bottom: 60px
+            padding-bottom: 100px
 </style>

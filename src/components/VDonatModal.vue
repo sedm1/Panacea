@@ -177,6 +177,8 @@ export default {
 @media screen and (max-width: $mobileContainer)
     .modal__donat
         padding: 15px
+        max-width: 98%
+        width: 100%
     .amount
         flex-wrap: wrap
         margin-bottom: 10px

@@ -126,6 +126,12 @@ export default {
     justify-content: center
     img
         max-width: 85%
+        -webkit-touch-callout: none
+        -webkit-user-select: none
+        -khtml-user-select: none
+        -moz-user-select: none
+        -ms-user-select: none
+        user-select: none
 .swiper
     height: 100%
 @media screen and (max-width: $smalltabletContainer)

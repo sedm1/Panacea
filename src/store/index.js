@@ -17,7 +17,7 @@ export default createStore({
       IsUserLogIn: true,
       balance: "0.00",
       img: "user.jpg",
-      level: 1
+      level: 1,
     },
     server: {
       UsOnline: 57,
@@ -99,7 +99,6 @@ export default createStore({
   actions: {
     async GET_PLAYERS_US({commit}){
       try {
-        //http://localhost:3000/playersUs
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersUs.json - для гит
         const UsPlayers = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersUs.json", {
           method: "GET"
@@ -113,7 +112,6 @@ export default createStore({
     },
     async GET_PLAYERS_EU({commit}){
       try {
-        //http://localhost:3000/playersEu - тестовое
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersEu.json - для гита
         const EuPlayers = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/PlayersEu.json", {
           method: "GET"
@@ -127,7 +125,6 @@ export default createStore({
     },
     async GET_STATS({commit}){
       try {
-        //http://localhost:3000/Stats - тестовое
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Stats.json - для гит
         const Stats = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Stats.json", {
           method: "GET"
@@ -141,7 +138,6 @@ export default createStore({
     },
     async GET_PROMO({commit}){
       try {
-        //http://localhost:3000/Purchase
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json
         const Promo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Purchase.json", {
           method: "GET"
@@ -155,7 +151,6 @@ export default createStore({
     },
     async GET_ITEMS({commit}){
       try {
-        //http://localhost:3000/ItemsForRoulette
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/ItemForRoulette.json
         const Items = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/ItemForRoulette.json", {
           method: "GET"
@@ -169,7 +164,6 @@ export default createStore({
     },
     async GET_LIVE_ITEMS({commit}){
       try {
-        //http://localhost:3000/LiveDropp
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/LiveDrops.json
         const Live_items = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/LiveDrops.json", {
           method: "GET"
@@ -183,7 +177,6 @@ export default createStore({
     },
     async GET_SUBSCRIPTIONS({commit}){
       try {
-        //http://localhost:3000/Subscriptions
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Subscriptions.json
         const Subscriptions = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Subscriptions.json", {
           method: "GET"
@@ -197,7 +190,6 @@ export default createStore({
     },
     async GET_ALLPROMO({commit}){
       try {
-        //http://localhost:3000/Promocodes
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promocodes.json
         const Allpromo = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Promocodes.json", {
           method: "GET"
@@ -211,7 +203,6 @@ export default createStore({
     },
     async GET_PURCHHISTORY({commit}){
       try {
-        //http://localhost:3000/PurchHistory
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/PurchHistory.json
         const PurchHistory = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/PurchHistory.json", {
           method: "GET"
@@ -225,7 +216,6 @@ export default createStore({
     },
     async GET_PRODUCTS({commit}){
       try {
-        //http://localhost:3000/Products
         //https://raw.githubusercontent.com/sedm1/Panacea/main/json/Products.json
         const Products = await axios("https://raw.githubusercontent.com/sedm1/Panacea/main/json/Products.json", {
           method: "GET"

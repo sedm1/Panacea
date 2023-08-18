@@ -7,7 +7,7 @@
             <img class="min__logo" src="../assets/img/logo-2.png" alt="LogoMin">
             <h1 class="section__title">Server Monitoring</h1>
           </div>
-          <p class="monit__descript">Total online: <span> 82 </span>  survivors</p>
+          <p class="monit__descript">Total online: <span> {{SERVER.UsOnline + SERVER.EuOnline}} </span>  survivors</p>
         </div>
         <div class="server">
           <aos-vue animation="flip-left" :delay="100" :offset="-250"><div 
@@ -17,26 +17,26 @@
           >
             <div class="server__info">
               <h2 class="server__title">Chernarus MOD US</h2>
-              <p class="server__descript">82/127</p>
+              <p class="server__descript">{{SERVER.UsOnline}}/{{SERVER.MaxUsOnline  }}</p>
             </div>
             <div class="round">
               <div class="server__round"></div>
-              <span>82</span>
+              <span>{{SERVER.UsOnline}}</span>
             </div>
           </div></aos-vue>
 
           <aos-vue animation="flip-left" :delay="300" :offset="-250"><div 
           class="server__block" 
           id="server__block-2"
-          style="--pie-p:1%;"
+          style="--pie-p:10%;"
           >
             <div class="server__info">
               <h2 class="server__title">Chernarus MOD EU</h2>
-              <p class="server__descript">0/80</p>
+              <p class="server__descript">{{SERVER.EuOnline}}/{{SERVER.MaxEuOnline  }}</p>
             </div>
             <div class="round">
               <div class="server__round"></div>
-              <span>0</span>
+              <span>{{SERVER.EuOnline}}</span>
             </div>
             
           </div></aos-vue>
@@ -49,8 +49,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-    name: "TheMonit"
+  name: "TheMonit",
+  computed: {
+    ...mapGetters([
+      'SERVER'
+    ])
+  }
 }
 </script>
 

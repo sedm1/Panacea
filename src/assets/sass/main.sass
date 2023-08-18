@@ -71,16 +71,20 @@ span
     +flexa
     justify-content: center
     transition: .2s
-    transform: scale(0)
-    background: rgba(0, 0, 0, 0.6)
+    display: none
+    background: rgba(0, 0, 0, 0.78)
     &-active
-        transform: scale(1)
+        display: flex
 .modal__main
     background: url(~@/assets/img/server_bg_1.png)
     +bg
     border-radius: 21px
     position: relative
     padding: 20px 25px
+    transition: .5s
+    opacity: 0
+    &-active
+        opacity: 1
 .swiper-pagination    
     bottom: 10px !important
 .swiper-pagination-bullet

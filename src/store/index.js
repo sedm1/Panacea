@@ -18,8 +18,13 @@ export default createStore({
       balance: "0.00",
       img: "user.jpg",
       level: 1
+    },
+    server: {
+      UsOnline: 57,
+      MaxUsOnline: 127,
+      EuOnline: 10,
+      MaxEuOnline: 80
     }
-    
   },
   getters: {
     PLAYERSUS(state){
@@ -30,6 +35,9 @@ export default createStore({
     },
     USER(state){
       return state.user
+    },
+    SERVER(state){
+      return state.server
     },
     STATS(state){
       return state.stats

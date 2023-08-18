@@ -147,6 +147,7 @@ section.items
   width: 202px
   justify-content: center
   border-radius: 10px
+  max-height: 215px
   .item__img
     width: 38px
   .item__title

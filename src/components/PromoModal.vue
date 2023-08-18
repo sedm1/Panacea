@@ -1,6 +1,6 @@
 <template>
   <div class="modalBg" :class="{'modalBg-active': IsModalOpen === true}">
-    <div class="modal__main">
+    <div class="modal__main" :class="{'modal__main-active': ModalAnimate === true}">
         <button 
         @click="this.$emit('CloseModal')"
         class="clode__btn"
@@ -32,6 +32,19 @@ export default {
         },
         Promocode: {
             type: String
+        }
+    },
+    data: () => {
+        return {
+            ModalAnimate: false
+        }
+    },
+    watch: {
+        IsModalOpen(){
+            setTimeout(() => {
+                this.ModalAnimate = !this.ModalAnimate
+            }, 100)
+            
         }
     }
 }

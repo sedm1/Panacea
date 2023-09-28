@@ -17,10 +17,22 @@
             </ul>
         </nav>
         <div class="right_header">
-            <a class="log_button" v-if="!USER.IsUserLogIn">
-                <span>Account</span>
-                <img src="../assets/img/svg/icon_profile.svg" alt="IconProfile">
-            </a>
+            <!--<form v-if="!USER.IsUserLogIn" action="https://steamcommunity.com/openid/login" method="post" >
+                <input type="hidden" name="openid.identity"
+                    value="http://specs.openid.net/auth/2.0/identifier_select" />
+                <input type="hidden" name="openid.claimed_id"
+                    value="http://specs.openid.net/auth/2.0/identifier_select" />
+                <input type="hidden" name="openid.ns" value="http://specs.openid.net/auth/2.0" />
+                <input type="hidden" name="openid.mode" value="checkid_setup" />
+                <input type="hidden" name="openid.realm" value="http://localhost:8080" />
+                <input type="hidden" name="openid.return_to" value="http://localhost:8080" /> 
+                <Button type="submit" class="log_button">Account <img src="../assets/img/svg/icon_profile.svg" alt="IconProfile"></Button>
+            </form>-->
+            <a 
+            v-if="!USER.IsUserLogIn" 
+            class="log_button"
+            href="https://api.panaceadayz.us/v1/Player.SteamLogin"
+            >Account <img src="../assets/img/svg/icon_profile.svg" alt="IconProfile"></a>
             <button class="user" 
             v-else 
             @click="IsLoginModalOpen = !IsLoginModalOpen"
@@ -75,7 +87,19 @@ export default {
     methods: {
         OpenModal(){
             this.IsMenuOpen = !this.IsMenuOpen
-        }
+        },
+        //...mapActions([
+        //    'SET_NEW_USER'
+        //])
+    },
+    mounted(){
+        //if (window.location.search === ""){
+            //Если ссылка стим ничего не вернула
+        //} else{
+        //    //Декодируем входные данные api от стима и получаем ссылку на профиль
+        //    const UserIdSteam = decodeURIComponent(window.location.search.replace("?","").split("&")[3].replace('openid.claimed_id=','')).replace('https://steamcommunity.com/openid/id/', '')
+        //    this.SET_NEW_USER(UserIdSteam)
+        //}
     }
 }
 </script>
@@ -137,10 +161,10 @@ header
     width: 197px
     height: 53px
     padding: 0 16px
-    font-weight: 600
-    font-size: 14px
     border-radius: 4px
     transition: 0.3s all
+    font-weight: 600
+    font-size: 14px
     img
         width: 14px
     &:hover

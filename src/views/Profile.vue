@@ -5,7 +5,7 @@
         <div class="container">
             <aside>
                 <div class="profile">
-                    <div class="profile__logo"><img :src="require(`@/assets/img/${USER.img}`)" alt="user"></div>
+                    <div class="profile__logo"><img :src="USER.img" alt="user"></div>
                     <div class="profile__name">{{ USER.name }}</div>
                     <div class="profile__level">Level {{ USER.level }}</div>
                 </div>

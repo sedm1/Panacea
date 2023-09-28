@@ -1,5 +1,10 @@
 import { createStore } from 'vuex'
 import axios from "axios"
+import VuexPersistence from 'vuex-persist'
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+  modules: ['user']
+})
 export default createStore({
   state: {
     playersUs: [],
@@ -13,11 +18,12 @@ export default createStore({
     purchhistory: [],
     products: [],
     user: {
-      name: 'Sedm1',
-      IsUserLogIn: true,
+      name: '',
+      IsUserLogIn: false,
       balance: "0.00",
-      img: "user.jpg",
+      img: "",
       level: 1,
+      SteamId: ""
     },
     server: {
       UsOnline: 57,
@@ -65,6 +71,12 @@ export default createStore({
     }
   },
   mutations: {
+    SET_NEW_USER_DATE: (state, SteamDate) => {
+      state.user.img = SteamDate[0]
+      state.user.name = SteamDate[1]
+      state.user.IsUserLogIn = true
+      window.location.search = ""
+    },
     SET_USPLAYERS_TO_STATE: (state, playersUs) => {
       state.playersUs = playersUs
     },
@@ -226,6 +238,29 @@ export default createStore({
         console.log("Ошибка при получении всех промокодов" + error)
         return error
       }
+    },
+    //async SET_NEW_USER({commit}, SteamId){
+    //   try {
+    //     const SteamApiKey = "FCED6F17167C667A153501D2A92C3827"
+    //     const SteamDate = await axios(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${SteamApiKey}&steamids=${SteamId}`, {
+    //       method: "GET"
+    //     })
+    //     //Уже полученные и отсортированные данные
+    //     const StemFullDate = SteamDate.data['response']['players'][0]
+    //     commit('SET_NEW_USER_DATE', [StemFullDate['avatarfull'], StemFullDate['personaname']])
+    //   } catch(error){
+    //     console.log("Ошибка при занесенгии айди")
+    //   }
+    // }
+    async SET_NEW_USER({commit}){
+      try{
+        const UserDate = await axios(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${SteamApiKey}&steamids=${SteamId}`, {
+          method: "GET"
+        })
+      } catch(error){
+          console.log("Ошибка при занесенгии айди")
+        }
     }
-  }
+  },
+  plugins: [vuexLocal.plugin]
 })

@@ -41,7 +41,7 @@
                     <div class="user__name">{{ USER.name }} <img src="../assets/img/svg/arrow.svg" alt="arrow"></div>
                     <div class="user__balance">${{USER.balance}}</div>
                 </div>
-                <div class="user__img"><img src="../assets/img/user.jpg" alt="UserImg"></div>
+                <div class="user__img"><img :src="USER.img" alt="UserImg"></div>
             </button>
 
             <button 
@@ -59,7 +59,10 @@
                     <div class="item__name">Balance</div>
                     <div class="item__icon"><img src="../assets/img/svg/icon_moore.svg" alt="ItemIcon"></div>
                 </router-link>
-                <button class="modal__button">
+                <button 
+                @click="LogOut()"
+                class="modal__button"
+                >
                     Logout
                     <img src="../assets/img/svg/icon_exit.svg" alt="LogOut">
                 </button>
@@ -88,8 +91,12 @@ export default {
         OpenModal(){
             this.IsMenuOpen = !this.IsMenuOpen
         },
+        LogOut(){
+            this.LogOut()
+        },
         ...mapActions([
-            'SET_NEW_USER'
+            'SET_NEW_USER',
+            'LogOut'
         ])
     },
     mounted(){

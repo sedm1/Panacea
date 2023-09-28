@@ -20,7 +20,7 @@ export default createStore({
     user: {
       name: '',
       IsUserLogIn: false,
-      balance: "0.00",
+      balance: "",
       img: "",
       level: 1,
       SteamId: ""
@@ -72,10 +72,12 @@ export default createStore({
   },
   mutations: {
     SET_NEW_USER_DATE: (state, SteamDate) => {
-      state.user.img = SteamDate[0]
-      state.user.name = SteamDate[1]
-      state.user.IsUserLogIn = true
-      window.location.search = ""
+      console.log(SteamDate)
+      state.user.name = SteamDate['name']
+      state.user.IsUserLogIn = SteamDate['IsUserLogIn']
+      state.user.balance = SteamDate['balance']
+      state.user.img = SteamDate['img']
+      state.user.SteamId = SteamDate['SteamId']
     },
     SET_USPLAYERS_TO_STATE: (state, playersUs) => {
       state.playersUs = playersUs
@@ -239,30 +241,26 @@ export default createStore({
         return error
       }
     },
-    //async SET_NEW_USER({commit}, SteamId){
-    //   try {
-    //     const SteamApiKey = "FCED6F17167C667A153501D2A92C3827"
-    //     const SteamDate = await axios(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${SteamApiKey}&steamids=${SteamId}`, {
-    //       method: "GET"
-    //     })
-    //     //Уже полученные и отсортированные данные
-    //     const StemFullDate = SteamDate.data['response']['players'][0]
-    //     commit('SET_NEW_USER_DATE', [StemFullDate['avatarfull'], StemFullDate['personaname']])
-    //   } catch(error){
-    //     console.log("Ошибка при занесенгии айди")
-    //   }
-    // }
     async SET_NEW_USER({commit}){
       try{
         const UserDate = await axios(`https://raw.githubusercontent.com/sedm1/Panacea/main/json/user.json`, {
           method: "GET"
         })
         commit("SET_NEW_USER_DATE", UserDate.data)
-        console.log(UserDate.data)
         return UserDate.data
       } catch(error){
-        console.log("Ошибка при занесенгии айди")
+        return
       }
+    },
+    async LogOut({commit}){
+      console.log("ААА" + commit)
+      commit("SET_NEW_USER_DATE", {
+        "IsUserLogIn": false,
+        "name": "",
+        "img": "",
+        "SteamId": "",
+        "balance": ""
+      })
     }
   },
   plugins: [vuexLocal.plugin]

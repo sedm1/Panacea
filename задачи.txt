@@ -1,5 +1,0 @@
-1) брать инфу о пользователе с user.json
-2) редиректы
-3) поработаь с магазином и заменить на апишки
-https://panaceadayz.us/ax/services/sendDonat
-https://api.panaceadayz.us/v1/Services.sendDonat

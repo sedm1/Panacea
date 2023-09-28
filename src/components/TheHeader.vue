@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import {mapGetters } from 'vuex'
+import {mapGetters, mapActions } from 'vuex'
 export default {
     name: "TheHeader",
     computed: {
@@ -88,18 +88,12 @@ export default {
         OpenModal(){
             this.IsMenuOpen = !this.IsMenuOpen
         },
-        //...mapActions([
-        //    'SET_NEW_USER'
-        //])
+        ...mapActions([
+            'SET_NEW_USER'
+        ])
     },
     mounted(){
-        //if (window.location.search === ""){
-            //Если ссылка стим ничего не вернула
-        //} else{
-        //    //Декодируем входные данные api от стима и получаем ссылку на профиль
-        //    const UserIdSteam = decodeURIComponent(window.location.search.replace("?","").split("&")[3].replace('openid.claimed_id=','')).replace('https://steamcommunity.com/openid/id/', '')
-        //    this.SET_NEW_USER(UserIdSteam)
-        //}
+        this.SET_NEW_USER()
     }
 }
 </script>

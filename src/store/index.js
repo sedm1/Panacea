@@ -254,12 +254,15 @@ export default createStore({
     // }
     async SET_NEW_USER({commit}){
       try{
-        const UserDate = await axios(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${SteamApiKey}&steamids=${SteamId}`, {
+        const UserDate = await axios(`https://raw.githubusercontent.com/sedm1/Panacea/main/json/user.json`, {
           method: "GET"
         })
+        commit("SET_NEW_USER_DATE", UserDate.data)
+        console.log(UserDate.data)
+        return UserDate.data
       } catch(error){
-          console.log("Ошибка при занесенгии айди")
-        }
+        console.log("Ошибка при занесенгии айди")
+      }
     }
   },
   plugins: [vuexLocal.plugin]
